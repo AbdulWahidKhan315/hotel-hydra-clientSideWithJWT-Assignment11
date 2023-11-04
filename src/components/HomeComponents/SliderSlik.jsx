@@ -15,11 +15,11 @@ export default class AutoPlay extends Component {
         const settings = {
             dots: true,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 2,
             slidesToScroll: 1,
             autoplay: true,
             speed: 8000,
-            autoplaySpeed: 100,
+            autoplaySpeed: 50,
             cssEase: "linear"
         };
         return (
@@ -45,7 +45,7 @@ export default class AutoPlay extends Component {
                             <img src={slider6} className="w-full lg:w-[95%] h-[160px] md:h-[350px] lg:h-[500px]" alt="" />
                         </div>
                     </Slider>
-                    <div className="text-center flex justify-center items-center text-pink-500">
+                    <div className="text-center flex justify-center items-center text-[#B8860B]">
                         <h2 className="text-2xl md:text-5xl lg:text-6xl absolute top-10 font-bold italic">The Best Secure Hotel In Dhaka</h2>
                         <h5 className="text-sm md:text-xl absolute top-20 md:top-36 font-bold">Most Luxurious Secure Hotel in Dhaka with the Royal Treatments and Excellent Customer Service.</h5>
                     </div>
