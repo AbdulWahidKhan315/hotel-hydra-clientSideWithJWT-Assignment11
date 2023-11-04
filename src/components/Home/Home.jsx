@@ -1,8 +1,9 @@
+import AutoPlay from "../HomeComponents/SliderSlik";
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-4xl">This is home</h2>
+            <AutoPlay></AutoPlay>
         </div>
     );
 };
