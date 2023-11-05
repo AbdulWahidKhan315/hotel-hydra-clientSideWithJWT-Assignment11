@@ -1,20 +1,23 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
 
     const navLinksStyle = ({ isActive }) => {
         return {
-            backgroundColor: isActive? '#B8860B': '',
+            backgroundColor: isActive ? '#B8860B' : '',
             textDecoration: isActive
         }
     }
 
+
     const navLinks = <>
         <li><NavLink style={navLinksStyle} to="/">Home</NavLink></li>
-        <li><NavLink to="/rooms">Rooms</NavLink></li>
-        <li><NavLink to="/myBookings">My Bookings</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
+        <li><NavLink style={navLinksStyle} to="/rooms">Rooms</NavLink></li>
+        <li><NavLink style={navLinksStyle} to="/myBookings">My Bookings</NavLink></li>
+        <li><NavLink style={navLinksStyle} to="/login">Login</NavLink></li>
+        <li><NavLink style={navLinksStyle} to="/register">Register</NavLink></li>
     </>
 
     return (
@@ -43,13 +46,13 @@ const Navbar = () => {
                 <div className="flex flex-col-reverse lg:flex-row items-center">
                     {/* {
                         user ? <p className="mr-2 font-bold">{user.displayName}</p> : ""
-                    }
-                    {
+                    } */}
+                    {/* {
                         user ? <img className="w-14 h-14 rounded-full mr-1" src={user.photoURL} alt="" /> : <img src="" alt="" />
                     } */}
                 </div>
                 {/* {
-                    user ? <button className="btn btn-sm lg:btn-md hover:bg-orange-600 bg-orange-500 border-none font-bold text-white" onClick={handleSignOut}>Sign Out</button> :
+                    user ? <button className="btn btn-sm lg:btn-md hover:bg-orange-600 bg-orange-500 border-none font-bold text-white">Sign Out</button> :
                         <Link to="/login">
                             <button className="btn btn-sm lg:btn-md bg-orange-600 hover:bg-orange-700  border-none font-bold text-white">Login</button>
                         </Link>

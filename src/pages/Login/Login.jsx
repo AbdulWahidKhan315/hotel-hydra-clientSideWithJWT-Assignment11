@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const {user}=useContext(AuthContext);
+
     return (
         <div className="bg-base-200">
                     <div className="hero min-h-screen bg-base-200">
@@ -38,11 +42,11 @@ const Login = () => {
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        {/* {
+                                        {
                                             user ? 
                                             <h1 className="text-3xl font-bold">Already logged in</h1>:
                                             <button className="btn bg-orange-500 hover:bg-orange-700 text-white">Login</button>
-                                        } */}
+                                        }
                                         <p>Do not have any accout? please <Link to="/register" className="font-bold text-blue-600">Register</Link></p>
                                     </div>
                                 </form>
