@@ -1,0 +1,80 @@
+[
+    {
+      "room_name": "PREMIUM KING",
+      "img1": "https://i.ibb.co/gVn6Qr2/slider1.jpg",
+      "img2": "deluxe-suite-img2.jpg",
+      "img3": "deluxe-suite-img3.jpg",
+      "room_description": "Spacious deluxe suite with a beautiful view.",
+      "price_per_night": 199.99,
+      "room_size": "400 sq. ft",
+      "availability": true,
+      "special_offer": false
+    },
+    {
+      "room_name": "PREMIUM TWIN",
+      "img1": "https://i.ibb.co/mXnJj8H/slider2.jpg",
+      "img2": "standard-room-img2.jpg",
+      "img3": "standard-room-img3.jpg",
+      "room_description": "Comfortable standard room for a relaxing stay.",
+      "price_per_night": 99.99,
+      "room_size": "300 sq. ft",
+      "availability": true,
+      "special_offer": true
+    },
+    {
+      "room_name": "SUPER DELUXE KING",
+      "img1": "https://i.ibb.co/TRW6tWg/slider3.jpg",
+      "img2": "executive-suite-img2.jpg",
+      "img3": "executive-suite-img3.jpg",
+      "room_description": "Luxurious executive suite with all the amenities.",
+      "price_per_night": 299.99,
+      "room_size": "500 sq. ft",
+      "availability": false,
+      "special_offer": false
+    },
+    {
+      "room_name": "SUPER DELUXE TWIN",
+      "img1": "https://i.ibb.co/BGc74DQ/slider4.jpg",
+      "img2": "family-room-img2.jpg",
+      "img3": "family-room-img3.jpg",
+      "room_description": "Spacious family room for a comfortable stay with loved ones.",
+      "price_per_night": 149.99,
+      "room_size": "450 sq. ft",
+      "availability": true,
+      "special_offer": true
+    },
+    {
+      "room_name": "DELUXE KING",
+      "img1": "https://i.ibb.co/J2XtJLK/slider5.jpg",
+      "img2": "luxury-villa-img2.jpg",
+      "img3": "luxury-villa-img3.jpg",
+      "room_description": "Exquisite luxury villa with a private pool and garden.",
+      "price_per_night": 499.99,
+      "room_size": "800 sq. ft",
+      "availability": true,
+      "special_offer": false
+    },
+    {
+      "room_name": "DELUXE TWIN",
+      "img1": "https://i.ibb.co/hyk58zn/slider6.jpg",
+      "img2": "budget-room-img2.jpg",
+      "img3": "budget-room-img3.jpg",
+      "room_description": "Economical budget room for a comfortable stay.",
+      "price_per_night": 79.99,
+      "room_size": "250 sq. ft",
+      "availability": true,
+      "special_offer": true
+    },
+    {
+      "room_name": "FAMILY ROOM",
+      "img1": "https://i.ibb.co/Thx6b9s/slider7.jpg",
+      "img2": "budget-room-img2.jpg",
+      "img3": "budget-room-img3.jpg",
+      "room_description": "Economical budget room for a comfortable stay.",
+      "price_per_night": 79.99,
+      "room_size": "250 sq. ft",
+      "availability": true,
+      "special_offer": true
+    }
+  ]
+  
