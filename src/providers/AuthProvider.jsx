@@ -1,10 +1,11 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged } from "firebase/auth"
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth"
 import app from "../firebase/firebase.config";
 import { createContext, useEffect } from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
@@ -26,6 +27,16 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const signIn = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const signInWithGoogle = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider);
+    }
+
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -37,10 +48,18 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth);
+    }
+
     const authInfo = {
         user,
         loading,
-        createUserInFirebase
+        createUserInFirebase,
+        signIn,
+        signInWithGoogle,
+        logOut
     }
     return (
         <AuthContext.Provider value={authInfo}>

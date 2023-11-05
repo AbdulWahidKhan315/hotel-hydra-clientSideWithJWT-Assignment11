@@ -1,8 +1,15 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLinksStyle = ({ isActive }) => {
         return {
@@ -27,7 +34,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] relative p-2 shadow bg-black rounded-box">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] relative p-2 shadow bg-black text-white rounded-box">
                         {
                             navLinks
                         }
@@ -44,19 +51,19 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className="flex flex-col-reverse lg:flex-row items-center">
-                    {/* {
+                    {
                         user ? <p className="mr-2 font-bold">{user.displayName}</p> : ""
-                    } */}
-                    {/* {
+                    }
+                    {
                         user ? <img className="w-14 h-14 rounded-full mr-1" src={user.photoURL} alt="" /> : <img src="" alt="" />
-                    } */}
+                    }
                 </div>
-                {/* {
-                    user ? <button className="btn btn-sm lg:btn-md hover:bg-orange-600 bg-orange-500 border-none font-bold text-white">Sign Out</button> :
+                {
+                    user ? <button onClick={handleSignOut} className="btn btn-sm lg:btn-md bg-[#D9A05A] hover:bg-[#B8860B] border-none font-bold text-white">Sign Out</button> :
                         <Link to="/login">
-                            <button className="btn btn-sm lg:btn-md bg-orange-600 hover:bg-orange-700  border-none font-bold text-white">Login</button>
+                            <button className="btn btn-sm lg:btn-md bg-[#D9A05A] hover:bg-[#B8860B]  border-none font-bold text-white">Login</button>
                         </Link>
-                } */}
+                }
                 {/* <label className="swap swap-rotate px-4">
 
                     <input type="checkbox" onChange={handleToggle} />
