@@ -14,7 +14,7 @@ const Rooms = () => {
               </figure>
               <div className="card-body items-center text-center">
                 <h2 className="card-title text-black font-extrabold">{room.room_name}</h2>
-                <h2 className={room.availability ? 'font-bold text-green-500' : 'font-bold text-red-500'}>{room.availability ? 'Available' : 'unavailable'}</h2>
+                <h2 className={room.available_seats>0 ? 'font-bold text-green-500' : 'font-bold text-red-500'}>{room.available_seats>0 ? 'Available' : 'Unavailable'}</h2>
               </div>
             </Link>
           </div>)

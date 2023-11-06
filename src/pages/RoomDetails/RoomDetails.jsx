@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { AiOutlineRight, AiOutlineBell, AiFillCustomerService, AiOutlineWifi, AiFillCar,AiOutlineCoffee, } from 'react-icons/ai';
-import {PiTelevisionBold} from 'react-icons/pi';
-import {GiCakeSlice, GiWineGlass, GiCigarette} from 'react-icons/gi';
+import { AiOutlineRight, AiOutlineBell, AiFillCustomerService, AiOutlineWifi, AiFillCar, AiOutlineCoffee, } from 'react-icons/ai';
+import { PiTelevisionBold } from 'react-icons/pi';
+import { GiCakeSlice, GiWineGlass, GiCigarette } from 'react-icons/gi';
 
 
 import 'swiper/css';
@@ -15,11 +15,15 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 const RoomDetails = () => {
     const details = useLoaderData();
-    const { _id, room_name, availabilit, img1, img2, img3, price_per_night, room_description, room_size, special_offer } = details;
+    const { _id, available_seats, room_name, availabilit, img1, img2, img3, price_per_night, room_description, room_size, special_offer } = details;
     return (
         <div className="relative">
             <img className="h-[200px] w-full object-cover" src={img1} alt="" />
-            <h2 className="text-5xl absolute top-10 font-bold text-[#B8860B] bg-white rounded-lg p-1">{room_name}</h2>
+            <h2 className="text-5xl absolute top-10 font-bold text-[#B8860B] bg-white rounded-lg p-1 animate-pulse">{room_name}</h2>
+            <div className="bg-amber-500 h-[70px] flex justify-around items-center">
+                <h1 className={available_seats > 0 ? "font-extrabold text-green-600 rounded-lg p-2 text-2xl animate-bounce bg-green-200" : "font-extrabold text-red-600 rounded-lg p-2 text-2xl animate-bounce bg-red-200"}>{available_seats > 0 ? "Available" : "Unavailable"}</h1>
+                <h1 className={special_offer === true ? "font-extrabold text-green-600 rounded-lg p-2 text-2xl animate-bounce bg-green-200" : "font-extrabold text-red-600 rounded-lg p-2 text-2xl animate-bounce bg-red-200"}>{special_offer === true ? "15% Offer" : "No Offer Available"}</h1>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-4 lg:mt-32  container mx-auto">
                 <div className="lg:col-span-3 lg:mr-10">
                     <Swiper
@@ -116,15 +120,44 @@ const RoomDetails = () => {
                             <p className="flex items-center gap-4"><AiOutlineWifi className="text-2xl text-[#B8860B]"></AiOutlineWifi>Free Wifi</p>
                         </div>
                         <div className="space-y-4">
-                        <p className="flex items-center gap-4"><PiTelevisionBold className="text-2xl text-[#B8860B]"></PiTelevisionBold>HD TV</p>
-                        <p className="flex items-center gap-4"><AiOutlineCoffee className="text-2xl text-[#B8860B]"></AiOutlineCoffee>Breakfast Included</p>
-                        <p className="flex items-center gap-4"><AiFillCar className="text-2xl text-[#B8860B]"></AiFillCar>Free Car Park</p>
+                            <p className="flex items-center gap-4"><PiTelevisionBold className="text-2xl text-[#B8860B]"></PiTelevisionBold>HD TV</p>
+                            <p className="flex items-center gap-4"><AiOutlineCoffee className="text-2xl text-[#B8860B]"></AiOutlineCoffee>Breakfast Included</p>
+                            <p className="flex items-center gap-4"><AiFillCar className="text-2xl text-[#B8860B]"></AiFillCar>Free Car Park</p>
                         </div>
                         <div className="space-y-4">
-                        <p className="flex items-center gap-4"><GiCakeSlice className="text-2xl text-[#B8860B]"></GiCakeSlice>Open Buffet</p>
-                        <p className="flex items-center gap-4"><GiWineGlass className="text-2xl text-[#B8860B]"></GiWineGlass>Mini-Bar</p>
-                        <p className="flex items-center gap-4"><GiCigarette className="text-2xl text-[#B8860B]"></GiCigarette>Smoking Room</p>
+                            <p className="flex items-center gap-4"><GiCakeSlice className="text-2xl text-[#B8860B]"></GiCakeSlice>Open Buffet</p>
+                            <p className="flex items-center gap-4"><GiWineGlass className="text-2xl text-[#B8860B]"></GiWineGlass>Mini-Bar</p>
+                            <p className="flex items-center gap-4"><GiCigarette className="text-2xl text-[#B8860B]"></GiCigarette>Smoking Room</p>
                         </div>
+                    </div>
+                </div>
+                <div className="lg:col-span-3 my-10 space-y-10">
+                    <h1 className="text-5xl text-gray-500">ROOM BOOKING</h1>
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead className="rounded-lg">
+                                <tr className="bg-[#D9A05A] text-white font-extrabold">
+                                    <th>Available Seats</th>
+                                    <th>Price Per Night</th>
+                                    <th>Room Size</th>
+                                    <th>Online Booking</th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-gray-100">
+                                {/* row 1 */}
+                                <tr>
+                                    <th>{available_seats}</th>
+                                    <td>{price_per_night} $</td>
+                                    <td>{room_size}</td>
+                                    <td>
+                                        <Link to={`/book_now/${_id}`}>
+                                            <button className="btn bg-[#D9A05A] transition ease-out duration-300 hover:scale-105 hover:bg-[#B8860B] hover:text-white animate-bounce hover:animate-none">Book Now</button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

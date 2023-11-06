@@ -24,7 +24,7 @@ export default class AutoPlay extends Component {
         };
         return (
             <div className="">
-                <div className="relative lg:container mx-auto w-11/12">
+                <div className="relative lg:container mx-auto w-[80%]">
                     <Slider {...settings}>
                         <div>
                             <img src={slider1} className="w-full lg:w-[95%] h-[160px] md:h-[350px] lg:h-[500px]" alt="" />
