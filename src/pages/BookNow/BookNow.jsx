@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const BookNow = () => {
     const {user} = useContext(AuthContext);
@@ -24,6 +26,25 @@ const BookNow = () => {
             email: user?.email,
             img1: img1
         }
+        fetch('http://localhost:5000/api/bookings',{
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(bookingRoom)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Booking successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        })
+        .catch(err => console.log(err))
     }
 
     return (
