@@ -5,6 +5,7 @@ import Home from "../components/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Rooms from "../pages/Rooms/Rooms";
+import RoomDetails from "../pages/RoomDetails/RoomDetails";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
             {
                 path: '/rooms',
                 element: <Rooms></Rooms>,
-                loader: ()=> fetch('/data.json')
+                loader: ()=> fetch('http://localhost:5000/api/rooms')
+            },
+            {
+                path: '/room_details/:id',
+                element: <RoomDetails></RoomDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/api/rooms_details/${params.id}`)
             }
         ]
     }
