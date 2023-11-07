@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
+import Swal from "sweetalert2";
 
 const Review = () => {
     const name = useParams();
@@ -18,6 +19,32 @@ const Review = () => {
             comment: comment,
             time: time
         }
+        fetch('http://localhost:5000/api/review',{
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(review)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Review added successfully. Look at the room details page to see...',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        })
+        .catch(err => {
+            Swal.fire({
+                title: 'Error!',
+                text: `${err.message}`,
+                icon: 'error',
+                confirmButtonText: 'Cancel'
+            })
+        })
     }
 
     return (
