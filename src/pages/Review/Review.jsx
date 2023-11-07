@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import ReactTimeAgo from "react-time-ago";
 import Swal from "sweetalert2";
 
 const Review = () => {

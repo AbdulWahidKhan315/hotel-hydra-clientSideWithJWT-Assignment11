@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { AiOutlineRight, AiOutlineBell, AiFillCustomerService, AiOutlineWifi, AiFillCar, AiOutlineCoffee, } from 'react-icons/ai';
 import { PiTelevisionBold } from 'react-icons/pi';
 import { GiCakeSlice, GiWineGlass, GiCigarette } from 'react-icons/gi';
+import ReactTimeAgo from "react-time-ago";
+import { Rate } from "antd";
 
 
 import 'swiper/css';
@@ -12,10 +14,20 @@ import 'swiper/css/pagination';
 import './swipper.css';
 
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { useEffect, useState } from "react";
 
 const RoomDetails = () => {
     const details = useLoaderData();
-    const { _id, available_seats, room_name, img1, img2, img3,img4,img5, price_per_night, room_description, room_size, special_offer } = details;
+    const [review, setReview] = useState([])
+    const { _id, available_seats, room_name, img1, img2, img3, img4, img5, price_per_night, room_description, room_size, special_offer } = details;
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/review?name=${room_name}`)
+            .then(res => res.json())
+            .then(data => setReview(data))
+    }, [])
+
     return (
         <div className="relative">
             <img className="h-[200px] w-full object-cover" src={img1} alt="" />
@@ -46,28 +58,28 @@ const RoomDetails = () => {
                             <img src={img2} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img3} className="h-full object-cover"/>
+                            <img src={img3} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img1} className="h-full object-cover"/>
+                            <img src={img1} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img4} className="h-full object-cover"/>
+                            <img src={img4} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img5} className="h-full object-cover"/>
+                            <img src={img5} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img1} className="h-full object-cover"/>
+                            <img src={img1} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img2} className="h-full object-cover"/>
+                            <img src={img2} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img3} className="h-full object-cover"/>
+                            <img src={img3} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img4} className="h-full object-cover"/>
+                            <img src={img4} className="h-full object-cover" />
                         </SwiperSlide>
                     </Swiper>
                 </div>
@@ -159,6 +171,28 @@ const RoomDetails = () => {
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+            <div className="container mx-auto pb-4">
+                <h1 className="text-3xl md:text-5xl font-bold italic text-gray-500">Customer Reviews</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
+                    {
+                        review.length>0 ? review.map(rev => <div key={rev._id} className=" rounded-tl-3xl rounded-tr-full bg-orange-300 text-black border-2 border-l-8 border-orange-500">
+                            <div className="card-body">
+                                <h2 className="card-title">{rev.userName}</h2>
+                                <div className="flex items-center gap-16">
+                                    <h2 className="font-bold">{rev.roomName}</h2>
+                                    <h2>
+                                        <ReactTimeAgo date={rev.time} locale="en-US"></ReactTimeAgo>
+                                    </h2>
+                                </div>
+                                <p className="w-[90%]">{rev.comment}</p>
+                                <div className="card-actions justify-end">
+                                    <h1><Rate defaultValue={rev.rating} style={{color:'black'}}></Rate></h1>
+                                </div>
+                            </div>
+                        </div>): <h1 className="text-3xl md:text-4xl text-center text-amber-400 font-bold italic underline underline-offset-8">No Reviews Available</h1>
+                    }
                 </div>
             </div>
         </div>

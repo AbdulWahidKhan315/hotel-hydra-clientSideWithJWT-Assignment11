@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import axios from "axios";
 import Swal from "sweetalert2";
 
 const BookNow = () => {
     const { user } = useContext(AuthContext);
     const bookingData = useLoaderData();
     const { _id, available_seats, room_name, img1, price_per_night, room_description } = bookingData;
-    const [display, setDisplay] = useState('')
+    const [display, setDisplay] = useState('hidden')
+    const seats = parseInt(bookingData.available_seats)
 
     const handleBook = (e) => {
         e.preventDefault();
@@ -63,7 +63,8 @@ const BookNow = () => {
                         <button className={`${display} text-orange-500 btn font-extrabold hover:bg-black`}>Leave a Review</button>
                     </Link>
                 </div>
-                <div>
+                {
+                    seats>0 ? <div>
                     <form onSubmit={handleBook}>
                         <div className="flex gap-2 ">
                             <div className="form-control md:w-1/2">
@@ -114,7 +115,8 @@ const BookNow = () => {
                         </div>
                         <button className="btn btn-block bg-[#B8860B] hover:bg-black text-white">Book</button>
                     </form>
-                </div>
+                </div>: <h1 className="text-center text-3xl md:text-5xl font-bold text-orange-900">You can't book this room. There is no available seats</h1>
+                }
             </div>
         </div>
     );
