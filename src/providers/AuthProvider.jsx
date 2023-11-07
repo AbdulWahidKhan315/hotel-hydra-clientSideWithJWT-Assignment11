@@ -3,6 +3,7 @@ import app from "../firebase/firebase.config";
 import { createContext, useEffect } from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -40,8 +41,29 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = {email: userEmail};
             setLoading(false);
             setUser(currentUser);
+            if(currentUser){
+                axios.post('http://localhost:5000/jwt',loggedUser,{withCredentials: true})
+                .then(res =>{
+                    console.log(res.data)
+                })
+                .catch(error =>{
+                    Swal.fire({
+                        title: 'Error!',
+                        text: `${error.message}`,
+                        icon: 'error',
+                        confirmButtonText: 'Cancel'
+                      })
+                })
+            }else{
+                axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
+                .then(res => {
+                    console.log(res.data)
+                })
+            }
         });
         return () => {
             unsubscribe();

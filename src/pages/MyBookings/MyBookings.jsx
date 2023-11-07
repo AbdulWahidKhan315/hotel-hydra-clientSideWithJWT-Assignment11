@@ -8,10 +8,17 @@ const MyBookings = () => {
     const [bookings, setBookings] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/bookings?email=${user?.email}`)
+        fetch(`http://localhost:5000/api/bookings?email=${user?.email}`,{credentials: "include"})
             .then(res => res.json())
             .then(data => setBookings(data))
-            .catch(err => console.log(err))
+            .catch(err => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${err.message}`,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                  })
+            })
     }, [])
 
     const handleDelete = (id) => {
