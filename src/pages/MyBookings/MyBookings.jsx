@@ -81,9 +81,9 @@ const MyBookings = () => {
                                     </th>
                                     <th>
                                         <button onClick={() => handleDelete(data._id)}
-                                            className="btn bg-orange-600 text-white font-bold hover:bg-orange-800">X</button>
+                                            className="btn btn-sm bg-orange-600 text-white font-bold hover:bg-orange-800">Cancel</button>
                                         <Link to={`/update/${data._id}`}>
-                                            <button className="btn bg-green-600 text-white font-bold hover:bg-green-800">Update</button>
+                                            <button className="btn btn-sm bg-green-600 text-white font-bold hover:bg-green-800">Update</button>
                                         </Link>
                                     </th>
                                 </tr>)

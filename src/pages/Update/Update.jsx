@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const data = useLoaderData();
@@ -14,7 +15,32 @@ const Update = () => {
             dateIn: dateIn,
             dateOut: dateOut
         }
-        console.log(updated)
+        fetch(`http://localhost:5000/api/update/bookings/${_id}`,{
+            method: 'PUT',
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(updated)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount>0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Booking update Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        })
+        .catch(err => {
+            Swal.fire({
+                title: 'Error!',
+                text: `${err.message}`,
+                icon: 'error',
+                confirmButtonText: 'Cancel'
+            })
+        })
 
     }
 
