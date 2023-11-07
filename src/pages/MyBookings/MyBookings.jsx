@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext)
@@ -24,7 +25,7 @@ const MyBookings = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/bookings/${id}`,{
+                fetch(`http://localhost:5000/api/bookings/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -81,7 +82,9 @@ const MyBookings = () => {
                                     <th>
                                         <button onClick={() => handleDelete(data._id)}
                                             className="btn bg-orange-600 text-white font-bold hover:bg-orange-800">X</button>
-                                        <button className="btn bg-green-600 text-white font-bold hover:bg-green-800">Update</button>
+                                        <Link to={`/update/${data._id}`}>
+                                            <button className="btn bg-green-600 text-white font-bold hover:bg-green-800">Update</button>
+                                        </Link>
                                     </th>
                                 </tr>)
                             }

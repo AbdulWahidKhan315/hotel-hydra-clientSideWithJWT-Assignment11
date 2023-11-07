@@ -9,6 +9,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import BookNow from "../pages/BookNow/BookNow";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import PrivateRoutes from "./PrivateRoutes";
+import Update from "../pages/Update/Update";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             {
                 path: '/myBookings',
                 element: <PrivateRoutes><MyBookings></MyBookings></PrivateRoutes>
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({params})=> fetch(`http://localhost:5000/api/find/forUpdate/${params.id}`)
             }
         ]
     }
