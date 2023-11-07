@@ -15,7 +15,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 const RoomDetails = () => {
     const details = useLoaderData();
-    const { _id, available_seats, room_name, availabilit, img1, img2, img3, price_per_night, room_description, room_size, special_offer } = details;
+    const { _id, available_seats, room_name, img1, img2, img3,img4,img5, price_per_night, room_description, room_size, special_offer } = details;
     return (
         <div className="relative">
             <img className="h-[200px] w-full object-cover" src={img1} alt="" />
@@ -43,31 +43,31 @@ const RoomDetails = () => {
                         className="mySwiper"
                     >
                         <SwiperSlide>
-                            <img src={img2} />
+                            <img src={img2} className="h-full object-cover" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img3} />
+                            <img src={img3} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={img1} />
+                            <img src={img1} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                            <img src={img4} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                            <img src={img5} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                            <img src={img1} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                            <img src={img2} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                            <img src={img3} className="h-full object-cover"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                            <img src={img4} className="h-full object-cover"/>
                         </SwiperSlide>
                     </Swiper>
                 </div>

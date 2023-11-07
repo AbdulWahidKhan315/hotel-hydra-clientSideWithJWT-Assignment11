@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/book_now/:id',
-                element: <BookNow></BookNow>,
+                element: <PrivateRoutes><BookNow></BookNow></PrivateRoutes>,
                 loader: ({params})=> fetch(`http://localhost:5000/api/rooms_details/${params.id}`)
             },
             {
