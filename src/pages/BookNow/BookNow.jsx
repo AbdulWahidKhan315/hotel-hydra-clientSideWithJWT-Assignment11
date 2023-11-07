@@ -1,13 +1,14 @@
-import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const BookNow = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const bookingData = useLoaderData();
-    const { _id, available_seats, room_name, availabilit, img1, img2, img3, price_per_night, room_description, room_size, special_offer } = bookingData;
+    const { _id, available_seats, room_name, img1, price_per_night, room_description } = bookingData;
+    const [display, setDisplay] = useState('')
 
     const handleBook = (e) => {
         e.preventDefault();
@@ -26,25 +27,26 @@ const BookNow = () => {
             email: user?.email,
             img1: img1
         }
-        fetch('http://localhost:5000/api/bookings',{
+        fetch('http://localhost:5000/api/bookings', {
             method: 'POST',
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(bookingRoom)
+            body: JSON.stringify(bookingRoom)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Booking successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                })
-            }
-        })
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Booking successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    setDisplay('')
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -54,7 +56,13 @@ const BookNow = () => {
                     <img src={img1} className="h-[400px] md:h-[500px] w-full object-cover rounded-tl-3xl" alt="" />
                     <p className="w-1/2 absolute top-5 left-5 bg-orange-200 p-3 rounded-tl-3xl  animate-pulse hover:animate-none"><span className="text-3xl font-bold">Description: A</span>{room_description}</p>
                 </div>
-                <h1 className="text-center text-5xl font-bold p-3">Book This Room: <span className="text-orange-600">{room_name}</span></h1>
+                <h1 className="text-center text-4xl md:text-5xl font-bold p-3">Book This Room: <span className="text-orange-600 ">{room_name}</span></h1>
+                <div className="flex flex-col justify-center items-center py-4">
+                    <h1>You can provide a review after booking...</h1>
+                    <Link to={`/review/${room_name}`}>
+                        <button className={`${display} text-orange-500 btn font-extrabold hover:bg-black`}>Leave a Review</button>
+                    </Link>
+                </div>
                 <div>
                     <form onSubmit={handleBook}>
                         <div className="flex gap-2 ">
@@ -104,7 +112,7 @@ const BookNow = () => {
                                 </label>
                             </div>
                         </div>
-                        <button className="btn btn-block bg-[#B8860B] hover:bg-orange-900 text-white">Book</button>
+                        <button className="btn btn-block bg-[#B8860B] hover:bg-black text-white">Book</button>
                     </form>
                 </div>
             </div>

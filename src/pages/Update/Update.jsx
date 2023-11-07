@@ -46,7 +46,7 @@ const Update = () => {
 
     return (
         <div className="bg-orange-100">
-            <h1 className="text-center text-5xl font-bold p-3">Update your bookings: <span className="text-orange-600">{roomName}</span></h1>
+            <h1 className="text-center text-3xl md:text-5xl font-bold p-3">Update your bookings: <span className="text-orange-600">{roomName}</span></h1>
             <div>
                 <form onSubmit={handleUpdate}>
                     <div className="flex gap-2 ">

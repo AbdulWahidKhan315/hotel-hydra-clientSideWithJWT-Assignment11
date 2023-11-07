@@ -10,6 +10,7 @@ import BookNow from "../pages/BookNow/BookNow";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import PrivateRoutes from "./PrivateRoutes";
 import Update from "../pages/Update/Update";
+import Review from "../pages/Review/Review";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <PrivateRoutes><Update></Update></PrivateRoutes>,
                 loader: ({params})=> fetch(`http://localhost:5000/api/find/forUpdate/${params.id}`)
+            },
+            {
+                path: '/review/:id',
+                element: <Review></Review>
             }
         ]
     }
