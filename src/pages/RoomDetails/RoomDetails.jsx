@@ -15,6 +15,7 @@ import './swipper.css';
 
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { useEffect, useState } from "react";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const RoomDetails = () => {
     const details = useLoaderData();
@@ -30,6 +31,7 @@ const RoomDetails = () => {
 
     return (
         <div className="relative">
+            <ReactHelmet title='Room Details'></ReactHelmet>
             <img className="h-[200px] w-full object-cover" src={img1} alt="" />
             <h2 className="text-5xl absolute top-10 font-bold text-[#B8860B] bg-white rounded-lg p-1 animate-pulse">{room_name}</h2>
             <div className="bg-amber-500 h-[70px] flex justify-around items-center">

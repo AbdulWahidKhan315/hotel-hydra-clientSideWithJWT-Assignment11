@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const BookNow = () => {
     const { user } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const BookNow = () => {
 
     return (
         <div>
+            <ReactHelmet title='Book Now'></ReactHelmet>
             <div className="bg-[#DEB887] p-2 lg:p-24">
                 <div className="relative">
                     <img src={img1} className="h-[400px] md:h-[500px] w-full object-cover rounded-tl-3xl" alt="" />

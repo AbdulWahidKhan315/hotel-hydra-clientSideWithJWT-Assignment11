@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const Review = () => {
     const name = useParams();
@@ -48,6 +49,7 @@ const Review = () => {
 
     return (
         <div>
+            <ReactHelmet title='Review'></ReactHelmet>
             <div className="bg-orange-100">
                 <h1 className="text-center text-5xl font-bold p-3">Provide a review for: <span className="text-orange-600">{name.id}</span> Room</h1>
                 <div className="p-3">

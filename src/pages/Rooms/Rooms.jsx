@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const Rooms = () => {
   const roomsData = useLoaderData();
@@ -17,6 +18,7 @@ const Rooms = () => {
   }
   return (
     <div>
+      <ReactHelmet title='Rooms'></ReactHelmet>
       <div className="flex justify-center mt-4">
         <button onClick={handleSort} className="btn bg-[#D9A05A] hover:bg-[#B8860B] transition-all hover:skew-x-2 hover:text-white hover:skew-y-2 hover:scale-105 animate-bounce hover:animate-none">Sort by Price</button>
       </div>

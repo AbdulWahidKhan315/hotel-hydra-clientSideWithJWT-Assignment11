@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext)
@@ -53,6 +54,7 @@ const MyBookings = () => {
 
     return (
         <div>
+            <ReactHelmet title='My Bookings'></ReactHelmet>
             <h2 className="text-3xl text-center font-bold my-3">Your bookings items: {bookings.length}</h2>
             <div>
                 <div className="overflow-x-auto">

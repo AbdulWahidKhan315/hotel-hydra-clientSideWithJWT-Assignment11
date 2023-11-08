@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -52,6 +53,7 @@ const Register = () => {
 
     return (
         <div className="bg-base-200">
+            <ReactHelmet title='Register'></ReactHelmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="flex flex-col lg:flex-row-reverse lg:gap-12 items-center">
                     <div className="text-center lg:text-left">
