@@ -47,6 +47,9 @@ export default class AutoPlay extends Component {
                     </Slider>
                     <div className="text-center flex justify-center items-center text-[#B8860B]">
                         <h2 className="text-2xl md:text-5xl lg:text-6xl absolute top-10 font-bold italic">The Best Secure Hotel In Dhaka</h2>
+                        <div className="h-16 w-16 rounded-2xl bg-gradient-to-r from-[#D9A05A] to-pink-500 animate-spin flex justify-center items-center">
+                            <h1 className='h-8 w-8 rounded-full bg-black animate-ping'></h1>
+                        </div>
                         <h5 className="text-sm md:text-xl absolute top-20 md:top-36 font-bold">Most Luxurious Secure Hotel in Dhaka with the Royal Treatments and Excellent Customer Service.</h5>
                     </div>
                 </div>

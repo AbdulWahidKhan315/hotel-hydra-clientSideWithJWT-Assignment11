@@ -1,8 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Navbar = () => {
+
+    useEffect(()=>{
+        AOS.init({duration: "1000"})
+    },[])
+
     const { user, logOut } = useContext(AuthContext);
 
     const handleSignOut = () => {
@@ -25,6 +34,7 @@ const Navbar = () => {
         <li><NavLink style={navLinksStyle} to="/myBookings">My Bookings</NavLink></li>
         <li><NavLink style={navLinksStyle} to="/login">Login</NavLink></li>
         <li><NavLink style={navLinksStyle} to="/register">Register</NavLink></li>
+        <li><NavLink style={navLinksStyle} to="/aboutUs">About Us</NavLink></li>
     </>
 
     return (

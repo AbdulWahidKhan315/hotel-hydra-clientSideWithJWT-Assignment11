@@ -11,6 +11,7 @@ import MyBookings from "../pages/MyBookings/MyBookings";
 import PrivateRoutes from "./PrivateRoutes";
 import Update from "../pages/Update/Update";
 import Review from "../pages/Review/Review";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: '/review/:id',
                 element: <Review></Review>
+            },
+            {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>
             }
         ]
     }
