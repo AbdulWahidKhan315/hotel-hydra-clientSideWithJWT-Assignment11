@@ -28,7 +28,7 @@ const Rooms = () => {
                 <img src={room.img1} alt="Shoes" className="rounded-lg transition hover:scale-105 duration-500 delay-100" />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title text-black font-extrabold">{room.room_name} <span>{room.price_per_night}</span></h2>
+                <h2 className="card-title text-black font-extrabold">{room.room_name} <span>{room.price_per_night}$</span></h2>
                 <h2 className={room.available_seats > 0 ? 'font-bold text-green-500' : 'font-bold text-red-500'}>{room.available_seats > 0 ? 'Available' : 'Unavailable'}</h2>
               </div>
             </Link>

@@ -8,7 +8,7 @@ const MyBookings = () => {
     const [bookings, setBookings] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/bookings?email=${user?.email}`,{credentials: "include"})
+        fetch(`https://hotel-hydra-server.vercel.app/api/bookings?email=${user?.email}`,{credentials: "include"})
             .then(res => res.json())
             .then(data => setBookings(data))
             .catch(err => {
@@ -32,7 +32,7 @@ const MyBookings = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/bookings?data=${JSON.stringify(allData)}`, {
+                fetch(`https://hotel-hydra-server.vercel.app/api/bookings?data=${JSON.stringify(allData)}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

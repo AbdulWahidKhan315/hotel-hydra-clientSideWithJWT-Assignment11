@@ -33,17 +33,17 @@ const router = createBrowserRouter([
             {
                 path: '/rooms',
                 element: <Rooms></Rooms>,
-                loader: ()=> fetch('http://localhost:5000/api/rooms')
+                loader: ()=> fetch('https://hotel-hydra-server.vercel.app/api/rooms')
             },
             {
                 path: '/room_details/:id',
                 element: <RoomDetails></RoomDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/api/rooms_details/${params.id}`)
+                loader: ({params}) => fetch(`https://hotel-hydra-server.vercel.app/api/rooms_details/${params.id}`)
             },
             {
                 path: '/book_now/:id',
                 element: <PrivateRoutes><BookNow></BookNow></PrivateRoutes>,
-                loader: ({params})=> fetch(`http://localhost:5000/api/rooms_details/${params.id}`)
+                loader: ({params})=> fetch(`https://hotel-hydra-server.vercel.app/api/rooms_details/${params.id}`)
             },
             {
                 path: '/myBookings',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-                loader: ({params})=> fetch(`http://localhost:5000/api/find/forUpdate/${params.id}`)
+                loader: ({params})=> fetch(`https://hotel-hydra-server.vercel.app/api/find/forUpdate/${params.id}`)
             },
             {
                 path: '/review/:id',

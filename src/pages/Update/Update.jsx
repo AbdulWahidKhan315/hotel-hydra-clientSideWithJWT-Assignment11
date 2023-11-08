@@ -15,7 +15,7 @@ const Update = () => {
             dateIn: dateIn,
             dateOut: dateOut
         }
-        fetch(`http://localhost:5000/api/update/bookings/${_id}`,{
+        fetch(`https://hotel-hydra-server.vercel.app/api/update/bookings/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

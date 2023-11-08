@@ -27,7 +27,7 @@ const BookNow = () => {
             email: user?.email,
             img1: img1
         }
-        fetch('http://localhost:5000/api/bookings', {
+        fetch('https://hotel-hydra-server.vercel.app/api/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

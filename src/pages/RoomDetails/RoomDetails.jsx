@@ -23,7 +23,7 @@ const RoomDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/review?name=${room_name}`)
+        fetch(`https://hotel-hydra-server.vercel.app/api/review?name=${room_name}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [])
@@ -188,7 +188,7 @@ const RoomDetails = () => {
                                 </div>
                                 <p className="w-[90%]">{rev.comment}</p>
                                 <div className="card-actions justify-end">
-                                    <h1><Rate defaultValue={rev.rating} style={{color:'black'}}></Rate></h1>
+                                    <h1 className="animate-pulse"><Rate defaultValue={rev.rating} style={{color:'black'}}></Rate></h1>
                                 </div>
                             </div>
                         </div>): <h1 className="text-3xl md:text-4xl text-center text-amber-400 font-bold italic underline underline-offset-8">No Reviews Available</h1>

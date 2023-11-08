@@ -18,7 +18,7 @@ const Review = () => {
             comment: comment,
             time: time
         }
-        fetch('http://localhost:5000/api/review',{
+        fetch('https://hotel-hydra-server.vercel.app/api/review',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
