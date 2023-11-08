@@ -21,7 +21,7 @@ const MyBookings = () => {
             })
     }, [])
 
-    const handleDelete = (id) => {
+    const handleDelete = (allData) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -32,7 +32,7 @@ const MyBookings = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/bookings/${id}`, {
+                fetch(`http://localhost:5000/api/bookings?data=${JSON.stringify(allData)}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -43,7 +43,7 @@ const MyBookings = () => {
                                 text: "Your booking has been deleted.",
                                 icon: "success"
                             });
-                            const remaining = bookings.filter(book => book._id !== id);
+                            const remaining = bookings.filter(book => book._id !== allData._id);
                             setBookings(remaining);
                         }
                     })
@@ -87,7 +87,7 @@ const MyBookings = () => {
                                         <img className="w-16 h-16 rounded-full" src={data.img1} alt="" />
                                     </th>
                                     <th>
-                                        <button onClick={() => handleDelete(data._id)}
+                                        <button onClick={() => handleDelete(data)}
                                             className="btn btn-sm bg-orange-600 text-white font-bold hover:bg-orange-800">Cancel</button>
                                         <Link to={`/update/${data._id}`}>
                                             <button className="btn btn-sm bg-green-600 text-white font-bold hover:bg-green-800">Update</button>
