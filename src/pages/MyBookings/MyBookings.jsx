@@ -3,13 +3,20 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
+import { configConsumerProps } from "antd/es/config-provider";
+import moment from "moment/moment";
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext)
     const [bookings, setBookings] = useState([])
 
+    // const m = moment();
+    // console.log(`original moment: ${m.toString()}`);
+    // m.subtract(myDate);
+    // console.log(`after : ${m.toString()}`)
+
     useEffect(() => {
-        fetch(`https://hotel-hydra-server.vercel.app/api/bookings?email=${user?.email}`,{credentials: "include"})
+        fetch(`https://hotel-hydra-server.vercel.app/api/bookings?email=${user?.email}`, { credentials: "include" })
             .then(res => res.json())
             .then(data => setBookings(data))
             .catch(err => {
@@ -18,11 +25,26 @@ const MyBookings = () => {
                     text: `${err.message}`,
                     icon: 'error',
                     confirmButtonText: 'Cool'
-                  })
+                })
             })
     }, [])
 
     const handleDelete = (allData) => {
+        const storedDateString = allData.dateIn;
+        const storedDate = moment(storedDateString, 'YYYY/MM/DD');
+        const currentDate = moment().format('YYYY/MM/DD');
+        const daysDifferent = storedDate.diff(currentDate, 'days')
+
+        if (daysDifferent < 1) {
+            Swal.fire({
+                title: 'Warning!',
+                text: 'You can not cancel booking before 1 day ago from your booked date',
+                icon: 'warning',
+                confirmButtonText: 'Ok'
+              })
+            return ;
+        }
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",

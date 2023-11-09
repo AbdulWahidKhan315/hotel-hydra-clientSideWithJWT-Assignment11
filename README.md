@@ -19,4 +19,7 @@
 * Can cancel a book-
   After completed the booking user will be able to see the booking lists in my booking page. And user can delete the booking if user want.
 
+* Can not cancel a booking before 1 day ago from booked date-
+  User has the access to delete a booking that user booked before. But one condition is that before 1 day from the booked date user can not delete or cancel the booking.
+
 

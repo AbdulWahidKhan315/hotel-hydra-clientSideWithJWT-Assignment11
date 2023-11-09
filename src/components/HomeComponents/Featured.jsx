@@ -22,7 +22,7 @@ const Featured = () => {
     return (
         <div className="container mx-auto">
             <h1 data-aos="zoom-in-up" className='text-4xl font-bold text-center text-[#B8860B] mb-6 italic mt-16'>Our Featured Rooms...</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 " data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {
                     someData.map(some => <div key={some._id} className="card border-l-8 border-r-8 border-[#B8860B] lg:flex lg:flex-row lg:items-center bg-base-100 shadow-xl">
                         <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">
