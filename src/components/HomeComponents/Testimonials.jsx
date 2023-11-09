@@ -42,7 +42,7 @@ export default function Testimonials() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="card shadow-xl bg-gradient-to-r from-[#D9A05A] from-10% via-orange-300 via-30% to--[#B8860B] to-90% h-full">
+                    <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className=" rounded-lg shadow-xl bg-gradient-to-r from-[#D9A05A] from-10% via-orange-300 via-30% to--[#B8860B] to-90%">
                         <div className="card-body">
                             <div className="flex items-center gap-4">
                                 <div className="h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
@@ -53,7 +53,7 @@ export default function Testimonials() {
                                     <h3 className="text-xl text-black">Traveler</h3>
                                 </div>
                             </div>
-                            <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-4xl text-black font-bold">Best service!! Very efficient and well-mannered!</p>
+                            <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-xl lg:text-4xl text-black font-bold">Best service!! Very efficient and well-mannered!</p>
                             <p className="text-black">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>
@@ -62,7 +62,7 @@ export default function Testimonials() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card shadow-xl bg-gradient-to-r from-lime-500 from-10% via-green-500 via-30% to-teal-500 to-90% h-full">
+                    <div className="rounded-lg shadow-xl bg-gradient-to-r from-lime-500 from-10% via-green-500 via-30% to-teal-500 to-90%">
                         <div className="card-body">
                             <div className="flex items-center gap-4">
                                 <div className="h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
@@ -73,7 +73,7 @@ export default function Testimonials() {
                                     <h3 className="text-xl text-white">Google Local Guide</h3>
                                 </div>
                             </div>
-                            <p className="text-4xl text-[#DEB887]">Food and nature make an amazing experience</p>
+                            <p className="text-xl lg:text-4xl text-[#DEB887]">Food and nature make an amazing experience</p>
                             <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-gray-300">“To be honest most of the restaurants in Cox's Bazar are good and maintain a similar quality, the only exception is their price and service quality. I've been to sampan beach resort only once, I like their food, and the location is a bit too far from the main town but the surrounding nature is really good.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>
@@ -82,7 +82,7 @@ export default function Testimonials() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card shadow-xl bg-gradient-to-r from-lime-700 from-10% via-sky-500 via-30% to-emerald-700 to-90% h-full">
+                    <div className="rounded-lg shadow-xl bg-gradient-to-r from-lime-700 from-10% via-sky-500 via-30% to-emerald-700 to-90%">
                         <div className="card-body">
                             <div className="flex items-center gap-4">
                                 <div className="h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
@@ -93,7 +93,7 @@ export default function Testimonials() {
                                     <h3 className="text-xl text-white">Photographer</h3>
                                 </div>
                             </div>
-                            <p className="text-4xl text-[#DEB887]">Best service!! Very efficient and well-mannered!</p>
+                            <p className="text-xl lg:text-4xl text-[#DEB887]">Best service!! Very efficient and well-mannered!</p>
                             <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-gray-300">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>

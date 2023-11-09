@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
+import loginImg from '../../assets/login4.jpg'
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -52,9 +53,10 @@ const Register = () => {
     }
 
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 relative">
+            <img src={loginImg} className="h-screen w-screen object-cover" alt="" />
             <ReactHelmet title='Register'></ReactHelmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen absolute top-0">
                 <div className="flex flex-col lg:flex-row-reverse lg:gap-12 items-center">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold text-[#B8860B]">Register now!</h1>

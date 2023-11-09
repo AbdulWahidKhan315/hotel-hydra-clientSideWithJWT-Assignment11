@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import Loader from "../../components/Loader/Loader";
 
 const Rooms = () => {
+  const { loading } = useContext(AuthContext)
   const roomsData = useLoaderData();
   const [rooms, setRooms] = useState(roomsData)
   const handleSort = () => {
@@ -15,6 +19,9 @@ const Rooms = () => {
     }
     const sorted = [...rooms].sort(customSort)
     setRooms(sorted)
+  }
+  if (loading) {
+    return <Loader></Loader>
   }
   return (
     <div>

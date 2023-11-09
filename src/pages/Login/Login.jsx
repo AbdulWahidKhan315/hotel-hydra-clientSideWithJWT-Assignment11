@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
+import loginImg from '../../assets/login4.jpg'
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -62,9 +63,10 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 relative">
+            <img src={loginImg} className="h-screen w-screen object-cover" alt="" />
             <ReactHelmet title='Login'></ReactHelmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen absolute top-0">
                 <div className="flex flex-col lg:flex-row-reverse lg:gap-12 items-center">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold text-[#B8860B]">Login now!</h1>

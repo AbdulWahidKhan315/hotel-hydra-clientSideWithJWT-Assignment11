@@ -6,6 +6,7 @@ import Testimonials from "../HomeComponents/Testimonials";
 import Loader from "../Loader/Loader";
 import ReactHelmet from "../ReactHelmet/ReactHelmet";
 import { AuthContext } from "../../providers/AuthProvider";
+import Packages from "../HomeComponents/Packages";
 
 const Home = () => {
     const { loading } = useContext(AuthContext)
@@ -18,6 +19,7 @@ const Home = () => {
             <AutoPlay></AutoPlay>
             <Featured></Featured>
             <Testimonials></Testimonials>
+            <Packages></Packages>
             <GoogleMap></GoogleMap>
         </div>
     );
