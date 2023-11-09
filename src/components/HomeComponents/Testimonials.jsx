@@ -3,12 +3,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useRef, useState } from 'react';
 import { Rate } from 'antd';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useEffect } from 'react';
 
 export default function Testimonials() {
+    useEffect(() => {
+        AOS.init({ duration: "1000" })
+    }, [])
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
     const onAutoplayTimeLeft = (s, time, progress) => {
@@ -17,8 +24,8 @@ export default function Testimonials() {
     };
     return (
         <div className='container mx-auto'>
-            <h1 className='text-xl mt-8 text-center font-bold uppercase text-gray-500'>Testimonials</h1>
-            <h1 className='text-4xl font-bold text-center text-[#B8860B] mt-8 italic uppercase'>What Customers Say</h1>
+            <h1 data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className='text-xl mt-8 text-center font-bold uppercase text-gray-500'>Testimonials</h1>
+            <h1 data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className='text-4xl font-bold text-center text-[#B8860B] mt-8 italic uppercase'>What Customers Say</h1>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -35,19 +42,19 @@ export default function Testimonials() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="card shadow-xl bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% h-full">
+                    <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="card shadow-xl bg-gradient-to-r from-[#D9A05A] from-10% via-orange-300 via-30% to--[#B8860B] to-90% h-full">
                         <div className="card-body">
                             <div className="flex items-center gap-4">
                                 <div className="h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
 
                                 </div>
                                 <div>
-                                    <h2 className="card-title text-white">Farah Hussain</h2>
-                                    <h3 className="text-xl text-white">Traveler</h3>
+                                    <h2 className="card-title text-black">Farah Hussain</h2>
+                                    <h3 className="text-xl text-black">Traveler</h3>
                                 </div>
                             </div>
-                            <p className="text-xl text-[#DEB887]">Best service!! Very efficient and well-mannered!</p>
-                            <p className="text-gray-300">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
+                            <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-4xl text-black font-bold">Best service!! Very efficient and well-mannered!</p>
+                            <p className="text-black">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>
                             </div>
@@ -66,8 +73,8 @@ export default function Testimonials() {
                                     <h3 className="text-xl text-white">Google Local Guide</h3>
                                 </div>
                             </div>
-                            <p className="text-xl text-[#DEB887]">Food and nature make an amazing experience</p>
-                            <p className="text-gray-300">“To be honest most of the restaurants in Cox's Bazar are good and maintain a similar quality, the only exception is their price and service quality. I've been to sampan beach resort only once, I like their food, and the location is a bit too far from the main town but the surrounding nature is really good.”</p>
+                            <p className="text-4xl text-[#DEB887]">Food and nature make an amazing experience</p>
+                            <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-gray-300">“To be honest most of the restaurants in Cox's Bazar are good and maintain a similar quality, the only exception is their price and service quality. I've been to sampan beach resort only once, I like their food, and the location is a bit too far from the main town but the surrounding nature is really good.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>
                             </div>
@@ -86,8 +93,8 @@ export default function Testimonials() {
                                     <h3 className="text-xl text-white">Photographer</h3>
                                 </div>
                             </div>
-                            <p className="text-xl text-[#DEB887]">Best service!! Very efficient and well-mannered!</p>
-                            <p className="text-gray-300">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
+                            <p className="text-4xl text-[#DEB887]">Best service!! Very efficient and well-mannered!</p>
+                            <p data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="text-gray-300">“The food was fresh and delicious. If you like quiet surrounding it’s the perfect place. Very safe for families! The pics of the resorts are actual! A bit of a walk to the beach, but it was worth it as the water was clean, and literally had the beach to ourselves.”</p>
                             <div className="card-actions justify-end">
                                 <Rate defaultValue={5}></Rate>
                             </div>

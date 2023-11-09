@@ -8,9 +8,9 @@ import 'aos/dist/aos.css';
 
 const Navbar = () => {
 
-    useEffect(()=>{
-        AOS.init({duration: "1000"})
-    },[])
+    useEffect(() => {
+        AOS.init({ duration: "1000" })
+    }, [])
 
     const { user, logOut } = useContext(AuthContext);
 
@@ -40,14 +40,16 @@ const Navbar = () => {
     return (
         <div data-aos="fade-down" data-aos-duration="2000" className="navbar bg-base-200 text-black">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className=" dropdown dropdown-right">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] relative p-2 shadow bg-black text-white rounded-box">
-                        {
-                            navLinks
-                        }
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] relative p-2 shadow bg-black text-white rounded-box w-80">
+                        <div className="flex flex-wrap">
+                            {
+                                navLinks
+                            }
+                        </div>
                     </ul>
                 </div>
                 <a className="btn btn-sm lg:btn-md normal-case text-base lg:text-xl bg-[#D9A05A] hover:bg-[#B8860B] text-white">Hotel-Hydra</a>
